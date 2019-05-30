@@ -1,0 +1,7 @@
+D:\ACA\C#_Homerworks\SortingAlgorithms\SortingAlgorithms\bin\Debug\SortingAlgorithms.exe.config
+D:\ACA\C#_Homerworks\SortingAlgorithms\SortingAlgorithms\bin\Debug\SortingAlgorithms.exe
+D:\ACA\C#_Homerworks\SortingAlgorithms\SortingAlgorithms\bin\Debug\SortingAlgorithms.pdb
+D:\ACA\C#_Homerworks\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.csprojAssemblyReference.cache
+D:\ACA\C#_Homerworks\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.csproj.CoreCompileInputs.cache
+D:\ACA\C#_Homerworks\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.exe
+D:\ACA\C#_Homerworks\SortingAlgorithms\SortingAlgorithms\obj\Debug\SortingAlgorithms.pdb
