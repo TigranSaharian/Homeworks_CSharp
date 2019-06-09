@@ -1,0 +1,471 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="SaharyanArtWebSiteModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ArtFact">
+          <Key>
+            <PropertyRef Name="ArtFactId" />
+          </Key>
+          <Property Name="ArtFactId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Material" Type="int" Nullable="false" />
+          <Property Name="Category" Type="int" Nullable="false" />
+          <Property Name="Width" Type="int" Nullable="false" />
+          <Property Name="Heigth" Type="int" Nullable="false" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="CreationDate" Type="datetime" Nullable="false" />
+          <Property Name="CreationPlace" Type="nvarchar" MaxLength="100" />
+          <Property Name="DrawingImage" Type="image" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'SaharyanArtWebSite.dbo.ArtFactInfoId' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ArtFactInfoId">
+          <Key>
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="About" />
+          </Key>
+          <Property Name="ArtFactInfoId" Type="int" />
+          <Property Name="Price" Type="int" Nullable="false" />
+          <Property Name="About" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CategoryInfo">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="int" Nullable="false" />
+          <Property Name="CategoriesName" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="int" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Phone" Type="int" />
+          <Property Name="Street" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="PostalCode" Type="int" />
+          <Property Name="Country" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Exibition">
+          <Key>
+            <PropertyRef Name="ExibitionId" />
+          </Key>
+          <Property Name="ExibitionId" Type="int" Nullable="false" />
+          <Property Name="ArtFactId" Type="int" Nullable="false" />
+          <Property Name="ExibitionDate" Type="datetime" Nullable="false" />
+          <Property Name="ExibitionPleaceName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="EventName" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Sponsor" Type="int" />
+        </EntityType>
+        <EntityType Name="MaterialInfo">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+          </Key>
+          <Property Name="MaterialId" Type="int" Nullable="false" />
+          <Property Name="MaterialName" Type="nvarchar" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SponsorInfo">
+          <Key>
+            <PropertyRef Name="SponsorId" />
+          </Key>
+          <Property Name="SponsorId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="100" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="16" />
+          <Property Name="Street" Type="nvarchar" MaxLength="100" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+          <Property Name="PostalCode" Type="int" />
+          <Property Name="Country" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <Association Name="FK_ArtFact_CategoryInfo">
+          <End Role="CategoryInfo" Type="Self.CategoryInfo" Multiplicity="1" />
+          <End Role="ArtFact" Type="Self.ArtFact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryInfo">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="ArtFact">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtFact_Material">
+          <End Role="MaterialInfo" Type="Self.MaterialInfo" Multiplicity="1" />
+          <End Role="ArtFact" Type="Self.ArtFact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialInfo">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="ArtFact">
+              <PropertyRef Name="Material" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtFactInfoId_ArtFact">
+          <End Role="ArtFact" Type="Self.ArtFact" Multiplicity="0..1" />
+          <End Role="ArtFactInfoId" Type="Self.ArtFactInfoId" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArtFact">
+              <PropertyRef Name="ArtFactId" />
+            </Principal>
+            <Dependent Role="ArtFactInfoId">
+              <PropertyRef Name="ArtFactInfoId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exibition_ArtFact">
+          <End Role="SponsorInfo" Type="Self.SponsorInfo" Multiplicity="0..1" />
+          <End Role="Exibition" Type="Self.Exibition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SponsorInfo">
+              <PropertyRef Name="SponsorId" />
+            </Principal>
+            <Dependent Role="Exibition">
+              <PropertyRef Name="Sponsor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SaharyanArtWebSiteModelStoreContainer">
+          <EntitySet Name="ArtFact" EntityType="Self.ArtFact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryInfo" EntityType="Self.CategoryInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Exibition" EntityType="Self.Exibition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialInfo" EntityType="Self.MaterialInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SponsorInfo" EntityType="Self.SponsorInfo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ArtFactInfoId" EntityType="Self.ArtFactInfoId" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ArtFactInfoId].[ArtFactInfoId] AS [ArtFactInfoId], 
+    [ArtFactInfoId].[Price] AS [Price], 
+    [ArtFactInfoId].[About] AS [About]
+    FROM [dbo].[ArtFactInfoId] AS [ArtFactInfoId]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_ArtFact_CategoryInfo" Association="Self.FK_ArtFact_CategoryInfo">
+            <End Role="CategoryInfo" EntitySet="CategoryInfo" />
+            <End Role="ArtFact" EntitySet="ArtFact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtFact_Material" Association="Self.FK_ArtFact_Material">
+            <End Role="MaterialInfo" EntitySet="MaterialInfo" />
+            <End Role="ArtFact" EntitySet="ArtFact" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtFactInfoId_ArtFact" Association="Self.FK_ArtFactInfoId_ArtFact">
+            <End Role="ArtFact" EntitySet="ArtFact" />
+            <End Role="ArtFactInfoId" EntitySet="ArtFactInfoId" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exibition_ArtFact" Association="Self.FK_Exibition_ArtFact">
+            <End Role="SponsorInfo" EntitySet="SponsorInfo" />
+            <End Role="Exibition" EntitySet="Exibition" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SaharyanArtWebSiteModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ArtFact">
+          <Key>
+            <PropertyRef Name="ArtFactId" />
+          </Key>
+          <Property Name="ArtFactId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Material" Type="Int32" Nullable="false" />
+          <Property Name="Category" Type="Int32" Nullable="false" />
+          <Property Name="Width" Type="Int32" Nullable="false" />
+          <Property Name="Heigth" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="CreationDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreationPlace" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DrawingImage" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="CategoryInfo" Relationship="Self.FK_ArtFact_CategoryInfo" FromRole="ArtFact" ToRole="CategoryInfo" />
+          <NavigationProperty Name="MaterialInfo" Relationship="Self.FK_ArtFact_Material" FromRole="ArtFact" ToRole="MaterialInfo" />
+          <NavigationProperty Name="ArtFactInfoIds" Relationship="Self.FK_ArtFactInfoId_ArtFact" FromRole="ArtFact" ToRole="ArtFactInfoId" />
+        </EntityType>
+        <EntityType Name="CategoryInfo">
+          <Key>
+            <PropertyRef Name="CategoryId" />
+          </Key>
+          <Property Name="CategoryId" Type="Int32" Nullable="false" />
+          <Property Name="CategoriesName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ArtFacts" Relationship="Self.FK_ArtFact_CategoryInfo" FromRole="CategoryInfo" ToRole="ArtFact" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerId" />
+          </Key>
+          <Property Name="CustomerId" Type="Int32" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="Int32" />
+          <Property Name="Street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="Int32" />
+          <Property Name="Country" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Exibition">
+          <Key>
+            <PropertyRef Name="ExibitionId" />
+          </Key>
+          <Property Name="ExibitionId" Type="Int32" Nullable="false" />
+          <Property Name="ArtFactId" Type="Int32" Nullable="false" />
+          <Property Name="ExibitionDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ExibitionPleaceName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EventName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Sponsor" Type="Int32" />
+          <NavigationProperty Name="SponsorInfo" Relationship="Self.FK_Exibition_ArtFact" FromRole="Exibition" ToRole="SponsorInfo" />
+        </EntityType>
+        <EntityType Name="MaterialInfo">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+          </Key>
+          <Property Name="MaterialId" Type="Int32" Nullable="false" />
+          <Property Name="MaterialName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ArtFacts" Relationship="Self.FK_ArtFact_Material" FromRole="MaterialInfo" ToRole="ArtFact" />
+        </EntityType>
+        <EntityType Name="SponsorInfo">
+          <Key>
+            <PropertyRef Name="SponsorId" />
+          </Key>
+          <Property Name="SponsorId" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="16" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="Int32" />
+          <Property Name="Country" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Exibitions" Relationship="Self.FK_Exibition_ArtFact" FromRole="SponsorInfo" ToRole="Exibition" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="ArtFactInfoId">
+          <Key>
+            <PropertyRef Name="Price" />
+            <PropertyRef Name="About" />
+          </Key>
+          <Property Name="ArtFactInfoId1" Type="Int32" />
+          <Property Name="Price" Type="Int32" Nullable="false" />
+          <Property Name="About" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ArtFact" Relationship="Self.FK_ArtFactInfoId_ArtFact" FromRole="ArtFactInfoId" ToRole="ArtFact" />
+        </EntityType>
+        <Association Name="FK_ArtFact_CategoryInfo">
+          <End Role="CategoryInfo" Type="Self.CategoryInfo" Multiplicity="1" />
+          <End Role="ArtFact" Type="Self.ArtFact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CategoryInfo">
+              <PropertyRef Name="CategoryId" />
+            </Principal>
+            <Dependent Role="ArtFact">
+              <PropertyRef Name="Category" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtFact_Material">
+          <End Role="MaterialInfo" Type="Self.MaterialInfo" Multiplicity="1" />
+          <End Role="ArtFact" Type="Self.ArtFact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialInfo">
+              <PropertyRef Name="MaterialId" />
+            </Principal>
+            <Dependent Role="ArtFact">
+              <PropertyRef Name="Material" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_ArtFactInfoId_ArtFact">
+          <End Role="ArtFact" Type="Self.ArtFact" Multiplicity="0..1" />
+          <End Role="ArtFactInfoId" Type="Self.ArtFactInfoId" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ArtFact">
+              <PropertyRef Name="ArtFactId" />
+            </Principal>
+            <Dependent Role="ArtFactInfoId">
+              <PropertyRef Name="ArtFactInfoId1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Exibition_ArtFact">
+          <End Role="SponsorInfo" Type="Self.SponsorInfo" Multiplicity="0..1" />
+          <End Role="Exibition" Type="Self.Exibition" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SponsorInfo">
+              <PropertyRef Name="SponsorId" />
+            </Principal>
+            <Dependent Role="Exibition">
+              <PropertyRef Name="Sponsor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="SaharyanArtWebSiteEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ArtFacts" EntityType="Self.ArtFact" />
+          <EntitySet Name="CategoryInfoes" EntityType="Self.CategoryInfo" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Exibitions" EntityType="Self.Exibition" />
+          <EntitySet Name="MaterialInfoes" EntityType="Self.MaterialInfo" />
+          <EntitySet Name="SponsorInfoes" EntityType="Self.SponsorInfo" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="ArtFactInfoIds" EntityType="Self.ArtFactInfoId" />
+          <AssociationSet Name="FK_ArtFact_CategoryInfo" Association="Self.FK_ArtFact_CategoryInfo">
+            <End Role="CategoryInfo" EntitySet="CategoryInfoes" />
+            <End Role="ArtFact" EntitySet="ArtFacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtFact_Material" Association="Self.FK_ArtFact_Material">
+            <End Role="MaterialInfo" EntitySet="MaterialInfoes" />
+            <End Role="ArtFact" EntitySet="ArtFacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_ArtFactInfoId_ArtFact" Association="Self.FK_ArtFactInfoId_ArtFact">
+            <End Role="ArtFact" EntitySet="ArtFacts" />
+            <End Role="ArtFactInfoId" EntitySet="ArtFactInfoIds" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Exibition_ArtFact" Association="Self.FK_Exibition_ArtFact">
+            <End Role="SponsorInfo" EntitySet="SponsorInfoes" />
+            <End Role="Exibition" EntitySet="Exibitions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SaharyanArtWebSiteModelStoreContainer" CdmEntityContainer="SaharyanArtWebSiteEntities">
+          <EntitySetMapping Name="ArtFacts">
+            <EntityTypeMapping TypeName="SaharyanArtWebSiteModel.ArtFact">
+              <MappingFragment StoreEntitySet="ArtFact">
+                <ScalarProperty Name="ArtFactId" ColumnName="ArtFactId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Width" ColumnName="Width" />
+                <ScalarProperty Name="Heigth" ColumnName="Heigth" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CreationDate" ColumnName="CreationDate" />
+                <ScalarProperty Name="CreationPlace" ColumnName="CreationPlace" />
+                <ScalarProperty Name="DrawingImage" ColumnName="DrawingImage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryInfoes">
+            <EntityTypeMapping TypeName="SaharyanArtWebSiteModel.CategoryInfo">
+              <MappingFragment StoreEntitySet="CategoryInfo">
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="CategoriesName" ColumnName="CategoriesName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="SaharyanArtWebSiteModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Exibitions">
+            <EntityTypeMapping TypeName="SaharyanArtWebSiteModel.Exibition">
+              <MappingFragment StoreEntitySet="Exibition">
+                <ScalarProperty Name="ExibitionId" ColumnName="ExibitionId" />
+                <ScalarProperty Name="ArtFactId" ColumnName="ArtFactId" />
+                <ScalarProperty Name="ExibitionDate" ColumnName="ExibitionDate" />
+                <ScalarProperty Name="ExibitionPleaceName" ColumnName="ExibitionPleaceName" />
+                <ScalarProperty Name="EventName" ColumnName="EventName" />
+                <ScalarProperty Name="Sponsor" ColumnName="Sponsor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialInfoes">
+            <EntityTypeMapping TypeName="SaharyanArtWebSiteModel.MaterialInfo">
+              <MappingFragment StoreEntitySet="MaterialInfo">
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="MaterialName" ColumnName="MaterialName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SponsorInfoes">
+            <EntityTypeMapping TypeName="SaharyanArtWebSiteModel.SponsorInfo">
+              <MappingFragment StoreEntitySet="SponsorInfo">
+                <ScalarProperty Name="SponsorId" ColumnName="SponsorId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="SaharyanArtWebSiteModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ArtFactInfoIds">
+            <EntityTypeMapping TypeName="SaharyanArtWebSiteModel.ArtFactInfoId">
+              <MappingFragment StoreEntitySet="ArtFactInfoId">
+                <ScalarProperty Name="ArtFactInfoId1" ColumnName="ArtFactInfoId" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="About" ColumnName="About" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

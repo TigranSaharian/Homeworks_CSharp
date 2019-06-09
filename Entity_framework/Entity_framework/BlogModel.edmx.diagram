@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1e6a0d5acf9c4d54bb82a34a7563388c" Name="Diagram1">
+        <EntityTypeShape EntityType="SaharyanArtWebSiteModel.ArtFact" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaharyanArtWebSiteModel.CategoryInfo" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaharyanArtWebSiteModel.Customer" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaharyanArtWebSiteModel.Exibition" Width="1.5" PointX="5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaharyanArtWebSiteModel.MaterialInfo" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaharyanArtWebSiteModel.SponsorInfo" Width="1.5" PointX="2.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaharyanArtWebSiteModel.sysdiagram" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="SaharyanArtWebSiteModel.ArtFactInfoId" Width="1.5" PointX="5.25" PointY="1.875" IsExpanded="true" />
+        <AssociationConnector Association="SaharyanArtWebSiteModel.FK_ArtFact_CategoryInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="SaharyanArtWebSiteModel.FK_ArtFact_Material" ManuallyRouted="false" />
+        <AssociationConnector Association="SaharyanArtWebSiteModel.FK_ArtFactInfoId_ArtFact" ManuallyRouted="false" />
+        <AssociationConnector Association="SaharyanArtWebSiteModel.FK_Exibition_ArtFact" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
