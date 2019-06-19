@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="71a86d26-9460-4edb-88e6-f4df68b540d8" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/StudentService/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="73d3cce6-b00c-4326-9666-2c70d6e2e639" SourceId="1" SourceUrl="http://localhost:8733/StudentService/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="42188da1-ab50-42ab-a5fa-c8ad61a170bc" SourceId="1" SourceUrl="http://localhost:8733/StudentService/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="cc832d5e-e99e-40f4-9ee4-7a27fda50ec9" SourceId="1" SourceUrl="http://localhost:8733/StudentService/mex" />
+    <MetadataFile FileName="DataLayer.xsd" MetadataType="Schema" ID="a4ba6828-3f23-4517-8f8c-5fe2e13f2c56" SourceId="1" SourceUrl="http://localhost:8733/StudentService/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

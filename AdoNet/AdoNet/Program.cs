@@ -25,6 +25,7 @@ namespace AdoNet
 
             using (SqlConnection connection = new SqlConnection(conStr))
             {
+                
                 // Create the Command and Parameter objects.
                 SqlCommand command = new SqlCommand(queryString, connection);
                 command.Parameters.AddWithValue("@days", 5);
@@ -47,7 +48,7 @@ namespace AdoNet
                 {
                     Console.WriteLine(ex.Message);
                 }
-                //Console.Read();
+                Console.Read();
             }
 
             //try

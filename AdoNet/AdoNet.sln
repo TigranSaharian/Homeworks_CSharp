@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoNet", "AdoNet\AdoNet.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdoNet_Using", "AdoNet_Using\AdoNet_Using.csproj", "{AA28EC03-FA17-44A0-9329-46ECCF4027DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SQLCommandBuilder", "SQLCommandBuilder\SQLCommandBuilder.csproj", "{E7AF1449-EE2E-4ECE-9C25-AE8ED67E6D84}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{AA28EC03-FA17-44A0-9329-46ECCF4027DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA28EC03-FA17-44A0-9329-46ECCF4027DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA28EC03-FA17-44A0-9329-46ECCF4027DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E7AF1449-EE2E-4ECE-9C25-AE8ED67E6D84}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E7AF1449-EE2E-4ECE-9C25-AE8ED67E6D84}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E7AF1449-EE2E-4ECE-9C25-AE8ED67E6D84}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E7AF1449-EE2E-4ECE-9C25-AE8ED67E6D84}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
