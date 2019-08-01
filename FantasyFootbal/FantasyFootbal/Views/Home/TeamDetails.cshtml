@@ -1,0 +1,176 @@
+﻿@model FantasyFootbal.Models.Tournoment.NavForTurDetailsModel
+
+<div class="real_match my_grid container">
+    <form asp-action="TeamDetails" method="get">
+        <div class="left_info">
+            <div class="ruls">
+                <div class="search">
+                    <input type="search" placeholder="Find player">
+                    <label for="checkbox">
+                        <input type="checkbox" id="checkbox">
+                        <span>Affordable</span>
+                    </label>
+                </div>
+                <div class="range">
+                    <div class="range_padding">
+                        <div>
+                            <h6>Max price <span>12<span>M</span></span></h6>
+                        </div>
+                        <input type="range" id="range">
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    @Html.DropDownList("all_teams", Model.Teams as SelectList)
+                    <input type="submit" class="btn-group btn" value="go" />
+                </div>
+
+                <div class="players">
+                    <div>
+                        <input type="hidden" id="hdd" name="hdd" />
+                        <ul onclick="GetLiVal(event);">
+                            <li class="btn-filter">All</li>
+                            <li class="btn-filter">Gk</li>
+                            <li class="btn-filter">Def</li>
+                            <li class="btn-filter">Mid</li>
+                            <li class="btn-filter">For</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="schedul">
+                <div class="schedul_ruls"><span>Player</span></div>
+                <ul class="choices">
+                    @foreach (var item in Model.Players)
+                    {
+                        <li class="choice" data-status="mid">
+                            <div class="one">
+                                <div class="add_player"><i class="fas fa-plus icon"></i></div>
+                                <div class="shirt"><img src="~/images/tShirt.png" alt=""><span>@item.Position</span></div>
+                                <div class="player_name"><p>@item.Player</p></div>
+                            </div>
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </form>
+
+    <div class="football_area">
+        <div class="match_info">
+            <div class="container">
+                <div class="row my_row">
+                    <div class="vs col-md-4">
+                        <img src="~/Icons/9118.png" alt="">
+                        <h5><span>@Model.TournamentDetails.Title</span></h5>
+                    </div>
+                    <div class="col-md-4 conditions">
+                        <div class="each_c">
+                            <span>Buy in</span>
+                            <b>
+                                <span>@Model.TournamentDetails.Price</span>
+                            </b>
+                        </div>
+                        <div class="each_c">
+                            <span>Prizepool</span>
+                            <b>
+                                <span>@Model.TournamentDetails.Balance</span>
+                            </b>
+                        </div>
+                    </div>
+                    <div class="col-md-4 clock">
+                        <div><i class="far fa-clock"></i></div>
+                        <div id="MyClockDisplay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="area">
+            <div class="add">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="footbal-add"></div>
+                        </div>
+                    </div>
+                    <div class="autocomplete_section">
+                        <div class="shaurma">
+                            <input type="button" name="add_team_db" id="add_team_db" value="create team" class="btn add_team_btn" />
+                        </div>
+                        <div class="select-cap">
+                            <h6 class="capitan">c</h6>
+                            <select name="checked-player" id="checked-player">
+                                <option value="1">Select</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button class="aoutocolpete" id="bolola">
+                                <i class="fas fa-bolt"></i>
+                                <p>Autocomplete</p>
+                            </button>
+                            <button class="cencel" id="clear">
+                                <i class="fas fa-times-circle"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="area-position">
+                <div class="team_positions">
+                    <div class="pl-teams">
+                        <table class="table" id="team-table">
+                            <thead>
+                                <tr class="team_title">
+                                    <td class="font-weight-bold">Player</td>
+                                    <td class="font-weight-bold">Position</td>
+                                </tr>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="status">
+        <header>Standings</header>
+        <hr style="margin: 0">
+        <section>
+            <table>
+                <thead>
+                    <tr>
+                        <td>Pos</td>
+                        <td>User name</td>
+                        <td>Points</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>User_1@gmail.com</td>
+                        <td>95</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+    <div class="Gameweek">
+        <div class="gameweek-text">
+            <p>Matches in the tournament</p>
+            <h1>Gameweek</h1>
+        </div>
+        <div class="pl-teams">
+            <table class="table">
+                @foreach (var item in Model.Matches)
+                {
+                    <tr class="pl-teams">
+                        <td>@item.Team_1</td>
+                        <td>vs</td>
+                        <td>@item.Team_2</td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

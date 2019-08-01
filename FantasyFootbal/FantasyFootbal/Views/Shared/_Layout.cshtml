@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Fantasy Footbal</title>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!--Css Styles links-->
+    <link rel="stylesheet" href="~/css/login.css">
+    <link rel="stylesheet" href="~/css/admin.css">
+    <link rel="stylesheet" href="~/css/main_style2.css">
+
+    <!--JQuery Link last version-->
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+
+    <!--Font Awesome Link for icons-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+
+    <!--JQuery Ui links for autocomplete-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.css" />
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.cdnjs.com/ajax/libs/json2/20110223/json2.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery/jquery-1.8.0.js"></script>
+    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.22/jquery-ui.js"></script>
+    <link rel="Stylesheet" href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.10/themes/redmond/jquery-ui.css" />
+
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="header_content">
+                <div class="logo">
+                    <a asp-controller="Home" asp-action="Tournament"><img src="~/images/Logo.png"></a>
+                </div>
+                <div class="main_title">
+                    <h2>Fantasy Football</h2>
+                </div>
+                <div class="user_content">
+                    <div class="account_box none">
+                        <div class="account">
+                            <h5></h5>
+                            <div><i class="fas fa-user-circle"></i></div>
+                        </div>
+                    </div>
+                    <div class="user_box">
+                        <a asp-controller="Home" asp-action="Admin" class="signIn" style="color: #71c500!important;">add tournament</a>
+                        <a class="signIn js-open-modal" data-signin="signin">sign in</a>
+                        <a asp-controller="Home" asp-action="Registration" class="signUp btn">sign up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="login_window" data-signin="signin">
+        <div class="main-div transform">
+            <div class="my_close js-modal-close"><i class="fas fa-times"></i></div>
+            <div class="panel">
+                <h2>Sign in</h2>
+                <p>Please enter your username and password</p>
+            </div>
+            <form id="Login">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="inputEmail" placeholder="Email or Username" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+                </div>
+                <div class="forgot">
+                    <a asp-controller="Home" asp-action="ResetPassword">Forgot password?</a>
+                </div>
+                <input type="submit" class="btn" name="submit" value="Login">
+            </form>
+        </div>
+    </div>
+    <div class="overlay js-overlay-modal"></div>
+
+    @RenderBody()
+
+    <script src="~/js/main.js"></script>
+    <script src="~/js/check.js"></script>
+
+</body>
+</html>

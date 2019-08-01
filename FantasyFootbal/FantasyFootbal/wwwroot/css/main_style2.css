@@ -1,0 +1,968 @@
+@font-face{
+    font-family: Delicius;
+    src: url('tt0007m_.ttf');
+}
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+button:focus{
+    outline: none;
+}
+body{
+    background-image: url(/images/Back_image.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.container{
+    padding: 0;
+}
+.back_color_2{
+    margin: 95px 0 0 0;
+}
+.back_color{
+    margin: 95px 0 0 0;
+    padding: 20px;
+    padding-bottom: 0;
+    background-color: #262C33;
+}
+.header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+    left: 0;
+    background-color: #1A1E23;
+    height: 90px;
+}
+.header_content{
+    position: relative;
+    width: 100%;
+    font-family: 'Swis721 Blk BT', sans-serif;
+}
+.logo{
+    display: inline-block;
+}
+
+.logo img{
+    width: 50px;
+    margin: 18px;
+}
+
+.main_title {
+    display: inline-block;
+    text-transform: uppercase;
+}
+.main_title h2 {
+    color: #71c500;
+    font-size: 20px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.user_content{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+}
+
+.user_box{
+    padding-right: 20px;
+}
+.user_box a{
+    margin-right: 10px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.signIn{
+    background: none;
+    border: none;
+    color: #fff!important;
+    text-transform: uppercase;
+}
+.signUp {
+    background-color: #71c500;
+    border: none;
+    color: #eee;
+    border-radius: 10px;
+    padding: 6px 30px;
+    transition: all 0.4s;
+    text-transform: uppercase;
+}
+.signUp:hover {
+    color: #1A1E23;
+    background-color: #F7FF00;
+}
+.leagues_content{
+    margin: 0;
+    padding: 12px;
+    background-color: #1A1E23;
+}
+.leagues{
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Swis721 Blk BT', sans-serif;
+    margin: 0;
+    text-align: right;
+}
+ul li{
+    display: inline-block;
+}
+
+ul li:nth-child(1) .ligue_button{
+    background-color: transparent;
+}
+ul li div{
+    display: inline-block;
+    padding-right: 10px;
+    
+}
+ul li h3{
+    display: inline-block;
+    font-size: 11px; 
+    margin: 0;
+}
+.ligue_button{
+    padding: 5px 21px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #363e48;
+    transition: all 0.4s;
+}
+
+.none{
+    display: none;
+}
+
+.account{
+    display: flex;
+    justify-content: center;
+}
+.account h5{
+    color: #eee;
+    font-size: 13px;
+    display: inline-block;
+    margin-top:auto;
+    margin-bottom: auto;
+    padding: 5px 15px;
+}
+
+.account div {
+    color: #71c500;
+    font-size: 30px;
+    display: inline-block;
+}
+
+.ligue_button:hover {
+    background-color: #4e5865;
+}
+.ligue_button img{
+    width: 24px;
+}
+.special_icons{
+    display: inline-block;
+    margin-left: 10px;
+}
+.special_icons ul{
+    margin-bottom: 5px;
+}
+.special_icons i{
+    color: #eee;
+    font-size: 28px;
+    padding: 0;
+    margin-right: 15px;
+    cursor: pointer;
+    transform: scale(1);
+    transition: all 0.4s;
+}
+
+.special_icons i:hover{
+    color: #F7FF00;
+    transform: scale(1.1);
+}
+.large_buttons{
+    margin-top: 20px;
+    font-family: 'Swis721 Blk BT', sans-serif;
+    text-transform: uppercase;
+}
+.large_buttons .row{
+    padding: 0 10px;
+}
+.sport_rooms{
+    text-align: center;
+    padding:  0 5px;
+}
+.sport_rooms h4{
+    margin: 0;
+    padding: 25px;
+    background-color:  #1A1E23;
+    font-size: calc(0.7vw + 5px);
+    color: #eee;
+}
+
+.out{
+    background: linear-gradient(rgba(54,62,71,1) 0%, rgba(39,45,53,1) 100%);
+}
+.go_content{
+    padding: 20px;
+    height: 100vh;
+    background-color: #1A1E23;
+}
+.each_play{
+    padding: 30px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    position: relative;
+    background-color: #262C33;
+    font-family: 'Swis721 Blk BT', sans-serif;
+}
+.go_wrapper img{
+    width: 50px;
+}
+.each_play h4{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin: 0;
+    padding-left: 50px;
+    font-size: 15px;
+    text-transform: uppercase;
+    display: inline-block; 
+    color: #eee;
+}
+.each_play h4 span{
+    color: #F7FF00;
+}
+.time_box{
+    position: absolute;
+    top: 50%;
+    transform: translate(-45%, -50%);
+    left: 45%;
+}
+
+.MatchTime {
+    color: #eee;
+    margin: 0;
+}
+
+#MatchTime{
+    margin: 0;
+}
+.time_box div {
+    display: inline-block;
+    padding: 7px;
+    margin-right: 2px;
+    border-radius: 2px;
+}
+.time_box span{
+    color: #1A1E23;
+}
+
+.turn_duration{
+    position: absolute;
+    top: 50%;
+    transform: translate(-65%, -50%);
+    left: 65%;
+}
+
+.turn_duration div{
+    display: inline-block;
+    padding: 3px 11px ;
+    margin-right: 2px;
+    border-radius: 2px;
+    background-color: #363e48;
+}
+.turn_duration span{
+    color: #eee;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+
+.price_box{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(-5%, -50%);
+    width: 250px;
+    text-align: center;
+}
+.price_wrapper{
+    padding: 15px 50px;
+    border-radius: 6px;
+    background-color: #1A1E23;
+}
+
+.price_wrapper h3{
+    text-align: center;
+    color: #eee;
+    font-size: 20px;
+}
+a:hover {
+    text-decoration: none;
+    color: #1A1E23;
+}
+.play{
+    background-color: #71c500;
+    border: none;
+    color: #eee;
+    font-size: 13px;
+    border-radius: 10px;
+    padding: 8px 25px;
+    text-transform: uppercase;
+    transition: all 0.4s;
+}
+
+.play:hover{
+    background-color: #F7FF00;
+}
+.real_match{
+    margin-top: 100px;
+}
+
+.real_match input:focus,
+.real_match select:focus{
+    outline: none;
+}
+.my_grid{
+    display: grid;
+    grid-gap: 1em;
+    grid-template-columns: repeat(3, 1fr);
+    margin-bottom: 50px;
+}
+
+.left_info{
+    grid-column: 1/3;
+    color: #eee;
+    border-radius: 5px;
+}
+.search{
+    background-color: #363e48;
+    padding: 15px;
+    font-family: 'Swis721 Blk BT', sans-serif;
+}
+.search input[type="search"]{
+    padding: 10px 10px;
+    border: none;
+    font-size: 13px;
+    border-radius: 5px;
+    background-color: #1A1E23;
+    color: #ccc;
+}
+
+.search label{
+    padding: 10px 15px;
+    margin: 0;
+    font-size: 13px;
+    background-color: #1A1E23;
+    border-radius: 5px;
+    position: relative;
+}
+.search input[type="checkbox"]{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    width: 15px;
+    height: 15px;
+}
+
+.search span{
+    padding-left: 20px;
+}
+.football_area{
+    grid-column: 2/6;
+}
+.Gameweek{
+    grid-column: 2/6;
+}
+.status{
+    grid-column: 1/2;
+}
+.range{
+    background-color: #1A1E23;
+}
+.range_padding{
+    padding: 15px;
+}
+.range input[type="range"]{
+    width: 100%;
+    position: relative;
+}
+.dropdown{
+    background-color: #1A1E23;
+}
+
+.btn-group {
+    border: none;
+    background-color: #71c500;
+    font-size: 12px;
+    padding: 6px 50px;
+    text-transform: uppercase;
+    border-radius: 5px;
+    font-family: 'Swis721 Blk BT', sans-serif;
+    text-align: center;
+    margin-top: -3px;
+    color: #eee;
+}
+
+.btn:hover {
+    background-color: #F7FF00;
+    color: #1A1E23;
+}
+.dropdown select:nth-child(1) {
+    background-color: #363e48;
+    padding: 5px;
+    color: #eee;
+    width: 200px;
+    margin: 0 5px 15px 15px;
+    border: none;
+    font-size: calc(0.3vw + 9px);
+}
+.players{
+    background-color: #363e48;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+.players ul{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.players ul li{
+    margin-right: 10px;
+    padding:0px 13px;
+    background-color: #1A1E23;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.players ul li:last-child{
+    margin-right: 0;
+}
+
+.schedul{
+    background-color: #eee;
+    border-radius: 5px;
+    max-height: 430px;
+    overflow-y: auto;
+}
+.btn-checked{
+    background-color: #eee!important;
+    color: #363e48;
+}
+.schedul ul{
+    margin: 0;
+    padding: 8px 0
+}
+.schedul_ruls{
+    text-align: center;
+    font-weight: 900;
+    text-transform: uppercase;
+    padding-top: 15px;
+    color: #1A1E23;
+    padding-bottom: 10px;
+}
+
+.schedul_ruls li{
+    text-align: right;
+}
+
+.choice {
+    background-color: #eee;
+    width: 100%;
+}
+
+.choice_active{
+    background-color: green;
+}
+.add_player{
+    padding: 5px 12px;
+    margin-left: 15px;
+    border-radius: 5px;
+    border: 1.5px solid #808080;
+    color: #808080;
+    cursor: pointer;
+}
+
+.add_player_active{
+    background-color: green;
+    border: 1.5px solid #fff;
+}
+.add_player_active i{
+    color: #eee;
+}
+.one{
+    border: 0.1px solid #ccc;
+    padding: 8px 0;
+    width: 100%;
+    position: relative;
+}
+.shirt{
+    position: relative;
+    margin-left: 13px;
+}
+
+.shirt::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: green;
+    right: -20%;
+}
+
+.shirt img{
+    margin-left: 10px;
+    margin-top: -10px;
+    width: 30px;
+    transition: all 0.3s;
+    border-radius: 5px;
+}
+.shirt img:hover{
+    background-color: #fff;
+    box-shadow: 0 0 3px 0px rgba(0,0,0, 0.5);
+}
+.shirt span{
+    position: absolute;
+    left: 50%;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0 5px;
+    border-radius: 5px;
+    background-color: #ccc;
+    bottom: -18%;
+    transform: translateX(-50%);
+    color: #515151;
+}
+.player_name {
+    text-align: right;
+}
+.player_name p {
+    color: #515151;
+    margin: 0;
+    margin-left: 13px;
+    font-size: 12px;
+    font-weight: 900;
+    position: relative;
+}
+
+.match, .column_1, .column_2{
+    color: #515151;
+}
+
+.match{
+    position: absolute;
+    right: 31%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.column_2{
+    position: absolute;
+    right: 3%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.column_1{
+    position: absolute;
+    right: 18%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.status{
+    background-color: #eee;
+    border-radius: 5px;
+    text-align: center;
+    max-height: 300px;
+    overflow-y: auto;
+}
+.status header{
+    width: 100%;
+    padding: 15px;
+    top: 0;
+    font-family: 'Swis721 Blk BT', sans-serif;
+    font-size: 19px;
+}
+.status table {
+    width: 100%;
+}
+
+.status thead{
+    border: 0.5px;
+    border-top-style: solid;
+    border-top-color: lightgray;
+    border-bottom-style:solid;
+    border-bottom-color: lightgray;
+}
+
+.status tbody {
+    color: #71c500;
+    background-color: #1A1E23;
+}
+
+.status td{
+    padding: 10px 5px;
+}
+
+.blue,
+.green,
+.yellow,
+.red,
+.gray {
+    width: 100%;
+    display: block;
+    margin-top: 10px;
+    padding: 8px 35px;
+    padding-right: 0;
+    position: relative;
+    font-family: 'Swis721 Blk BT', sans-serif;
+    font-size: 13px;
+}
+.blue::before{
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: dodgerblue;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 3%;
+}
+
+.green::before{
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: green;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 3%;
+}
+.yellow::before{
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: yellow;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 3%;
+}
+.red::before{
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: red;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 3%;
+}
+.gray::before{
+    position: absolute;
+    content: '';
+    width: 15px;
+    height: 15px;
+    background-color: dimgrey;
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 3%;
+}
+.area-position {
+    background-color: #1A1E23;
+    width: 100%;
+    margin-top: 10px;
+    height: 530px;
+    overflow-y: scroll;
+    border-radius: 0 0 5px 5px;
+}
+.area img{
+    width: 100%;
+    padding: 51px 0;
+}
+.team_title td {
+    color: #71c500;
+    font-size: 20px;
+    text-transform: uppercase;
+    width: 250px;
+    letter-spacing: 3px;
+}
+
+tbody {
+    border: none;
+}
+.match_info {
+    background: -webkit-linear-gradient(left, rgb(0,23,109) 0%, rgb(102,71,132) 100%);
+    background: -o-linear-gradient(left, rgb(0,23,109) 0%, rgb(102,71,132) 100%);
+    background: linear-gradient(to right, rgb(0,23,109) 0%, rgb(102,71,132) 100%);
+    border-radius: 5px;
+}
+
+.vs img{
+    width: 30px;
+    height: auto;
+}
+.vs{
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100%;
+    padding-left: 25px;
+}
+.vs h5{
+    display: inline-block;
+    color: #eee;
+    font-family: 'Swis721 Blk BT', sans-serif;
+    font-size: 14px;
+    padding-left: 20px;
+    margin: 0;
+}
+.my_row{
+    padding: 0 15px;
+}
+.conditions{
+    padding: 10px 0;
+    text-align: center;
+    border: 1px;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-right-color: #eee;
+    border-left-color: #eee;
+}
+.conditions div{
+    display: inline-block;
+}
+.each_c span{
+    display:flex;
+    justify-content: center;
+    color: #ccc;
+    margin: 0 5px;
+}
+.each_c b span{
+    color: #eee;
+    margin-top: 1px;
+}
+.clock{
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    text-align: center;
+}
+.clock i{
+    padding-right: 15px;
+}
+
+.clock div{
+    color: #eee;
+    display: inline-block;
+    justify-content: center;
+    font-size: 20px;
+    font-family: 'Swis721 Blk BT', sans-serif;
+}
+
+.local_player{
+    width: 90px;
+    position: relative;
+    height: 50px;
+    background: linear-gradient(to bottom, rgb(208,218,224) 0%,rgb(255,255,255) 100%);
+    position: relative;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.local_player::before{
+    content: '+';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-family: 'Swis721 Blk BT', sans-serif;
+    color: #363e48;
+}
+
+.area{
+    position: relative;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+.shaurma{
+    display:flex;
+    justify-content:center;
+    margin-right: 10px;
+}
+.add_team_btn {
+    background-color: #71c500;
+    font-size: 14px;
+    padding: 3px 40px;
+    color:#eee;
+    text-transform:uppercase;
+}
+.goalkeeper{
+    grid-row: 1/2;
+    padding: 65px 0;
+    display: flex;
+    justify-content: center;
+}
+.defender{
+    grid-row: 2/3;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.mitfielder{
+    grid-row: 3/4;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+.add{
+    position: relative;
+}
+.forward{
+    grid-row: 4/5;
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footbal-add {
+    height: 70px;
+    background-color: #363e48;
+}
+
+.Gameweek {
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 15px;
+    
+}
+
+.autocomplete_section {
+    position: absolute;
+    top: 50%;
+    display: flex;
+    transform: translateY(-50%);
+    right: 50px;
+}
+
+.autocomplete_section button{
+    display: inline-block;
+    height: 100%;
+    padding: 10px 15px;
+    background-color: #eee;
+    border: none;
+    border-radius: 3px;
+    font-size: 15px;
+}
+.autocomplete_section .fa-bolt{
+    font-size: 12px;
+}
+
+.autocomplete_section i{
+    margin: 0;
+    line-height: 0;
+    padding: 0;
+}
+.autocomplete_section button p{
+    display: inline-block;
+    margin: 0;
+    margin-left: 10px;
+}
+.autocomplete_section select{
+    margin-right: 50px;
+    padding: 5px 10px;
+    height: 30px;
+    border-radius: 5px;
+    font-size: 13px;
+    background-color: #1A1E23;
+    color: #eee;
+    width: 200px;
+    border: none;
+}
+.select-cap{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.select-cap h6{
+    margin: 0;
+    margin-right: 10px;
+    padding:2.5px 15px 5.5px 15px;
+}
+
+.capitan{
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    margin: 0;
+    border-radius: 5px;
+    display: inline-block;
+    background-color: #1A1E23;
+
+}
+
+.gameweek-text{
+    text-align: center;
+}
+
+.gameweek-text h1{
+    font-size: 18px;
+    margin: 0;
+    padding-bottom: 10px;
+    font-family: 'Swis721 Blk BT', sans-serif;
+
+}
+
+.gameweek-text p{
+    margin: 0;
+    padding-bottom: 10px;
+}
+.pl-teams {
+    color: #1A1E23;
+}
+
+.pl-teams2 {
+    color: #F7FF00;
+}
+
+.burger{
+    position: absolute;
+    left: 50%;
+    display: none;
+    transform: translateX(-50%);
+    color: #eee;
+    top: -13px;
+    padding: 8px 20px;
+    background-color: #1A1E23;
+    text-align: center;
+}
+.burger span{
+    display: inline-block;
+    text-transform: uppercase;
+}
+.burger span:nth-child(1){
+    color: #f7ff00;
+    font-weight: 700;
+}
+.burger span:nth-child(2){
+    font-size: 15px;
+    font-weight: 800;
+}

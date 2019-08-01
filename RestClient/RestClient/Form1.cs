@@ -44,7 +44,6 @@ namespace RestClient
             }
             catch (Exception ex)
             {
-
                 Debug.Write(ex.Message, ToString() + Environment.NewLine);
             }
         }

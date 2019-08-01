@@ -1,0 +1,109 @@
+﻿@model IEnumerable<FantasyFootbal.Models.Tournoment.TournamentDetails>
+
+<div class="container">
+    <div class="back_color">
+        <div class="special_icons">
+            <div class="icon_wrapper">
+                <ul>
+                    <li><i class="far fa-futbol"></i></li>
+                    <li><i class="fas fa-basketball-ball"></i></li>
+                    <li><i class="fas fa-table-tennis"></i></li>
+                    <li><i class="fas fa-baseball-ball"></i></li>
+                    <li><i class="fas fa-hockey-puck"></i></li>
+                </ul>
+            </div>
+        </div>
+        <div class="leagues_content">
+            <ul class="leagues">
+                <li>
+                    <div class="ligue_button">
+                        <h3>All leagues</h3>
+                    </div>
+                </li>
+                <li>
+                    <div class="ligue_button">
+                        <div><img src="~/Icons/gold_cup.png"> </div>
+                        <h3>cup world</h3>
+                    </div>
+                </li>
+                <li>
+                    <div class="ligue_button">
+                        <div><img src="~/Icons/Mexica-01.png"> </div>
+                        <h3>mexica</h3>
+                    </div>
+                </li>
+                <li>
+                    <div class="ligue_button">
+                        <div><img src="~/Icons/finland.png"> </div>
+                        <h3>finland</h3>
+                    </div>
+                </li>
+                <li>
+                    <div class="ligue_button">
+                        <div><img src="~/Icons/Ingland.png"> </div>
+                        <h3>england</h3>
+                    </div>
+                </li>
+                <li>
+                    <div class="ligue_button">
+                        <div><img src="~/Icons/brazil.png"> </div>
+                        <h3>brasil</h3>
+                    </div>
+                </li>
+                <li>
+                    <div class="ligue_button">
+                        <div><img src="~/Icons/spain.png"> </div>
+                        <h3>spain</h3>
+                    </div>
+                </li>
+                <li>
+                    <div class="ligue_button">
+                        <div><img src="~/Icons/italia-01.png"> </div>
+                        <h3>italy</h3>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="large_buttons container">
+            <div class="row">
+                <div class="sport_rooms col-md-4">
+                    <h4>oficial games</h4>
+                </div>
+                <div class="sport_rooms col-md-4">
+                    <h4 class="out">american football</h4>
+                </div>
+                <div class="sport_rooms col-md-4">
+                    <h4 class="out">tennis</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="go_content">
+        <div class="go_wrapper">
+
+            @foreach (var Item in Model)
+             {
+                <div class="each_play" data-model-id="@Item.Id">
+                    <img src="~/Icons/9118.png" alt="">
+                    <h4><span class="name_first">@Item.Title </span></h4>
+                    <div class="time_box">
+                        <p id="matchTime" class="MatchTime" data-start-time="@Item.StartDate"></p>
+                    </div>
+                    <div class="turn_duration">
+                        <div class="hour"><span>@Item.CountOf</span></div>
+                        <div class="minute"><span>gw12</span></div>
+                    </div>
+                    <div class="price_box">
+                        <div class="price_wrapper">
+                            <h3 class="kon">@Item.Balance$</h3>
+                            <a href="/Home/TeamDetails/@Item.Id" class="play btn">play<span>@Item.Price<span>$</span></span></a>
+                        </div>
+                    </div>
+                </div>
+             }
+        </div>
+    </div>
+</div>
