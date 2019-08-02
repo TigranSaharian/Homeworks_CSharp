@@ -43,6 +43,7 @@ $(function () {
                 alert(response.responseText);
             },
             success: function (data1) {
+                console.log(data1);
                 $("#team-table > TBODY ").html('');
                 for (var i = 0; i < data1.length; i++) {
                     $("#team-table").append("<tr><td>" + data1[i].name + "</td><td>" + data1[i].position + "</td></tr>");              

@@ -3,7 +3,6 @@ using FantasyFootbal.Models.Tournoment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace FantasySportAdminPage.Models
 {
@@ -76,12 +75,12 @@ namespace FantasySportAdminPage.Models
                 teamSum = userTeam.GetSum();
                 cnt++;
                 if (cnt > 1000000)
-                {
+                { 
                     userTeam.MyTeam.Clear();
 
                     break;
                 }
-            } while ((teamSum > 100000 && teamSum < 800000) && userTeam.Check() == true);     //Autocomplete
+            } while ((teamSum > 7800000 && teamSum < 8000000) && userTeam.Check() == true);     //Autocomplete
 
             var result = (from t in userTeam.MyTeam select new { Name = t.Name, Position = t.Position });
             List<FillModel> list = new List<FillModel>();

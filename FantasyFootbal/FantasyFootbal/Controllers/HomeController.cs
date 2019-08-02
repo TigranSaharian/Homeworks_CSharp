@@ -20,9 +20,9 @@ namespace FantasyFootbal.Controllers
     public class HomeController : Controller
     {
         // 
-        private string EmailSet;
+        public static string EmailSet;
         //
-        private int TeamId;
+        public static int TeamId;
         // Connection to tournament data
         private readonly TournamentContext tournamentContext;
         // Connection to users data

@@ -1,13 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
-using System.Threading.Tasks;
-using FantasyFootbal.Models.Tournoment;
-using Microsoft.AspNetCore.Http;
+﻿using FantasyFootbal.Models.Tournoment;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace FantasyFootbal.Controllers
 {

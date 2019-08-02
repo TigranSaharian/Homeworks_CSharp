@@ -272,10 +272,10 @@ $(document).ready(function () {
 $(document).ready(function () {
     $("#add_team_db").click(function () {
         var player = new Array();
-        $("#team-table  tr").each(function () {
+        $("#team-table TBODY tr").each(function () {
             var row = $(this);
             var Team = {};
-            Team.player1 = row.find("td").eq(0).html();
+            Team.FootballPlayer = row.find("td").eq(0).html();
             player.push(Team);
         });
         alert(JSON.stringify(player));
