@@ -25,7 +25,7 @@ namespace FantasyFootbal.Models.User
             };
 
             smtp.EnableSsl = true;
-            mailMessage.Body = "https://localhost:44376/Home/NewPassword?password=" + URLEnd;
+            mailMessage.Body = "http://localhost:57537/Home/NewPassword?password=" + URLEnd;
             smtp.Credentials = new NetworkCredential("ayartest@gmail.com", "test123456");
             smtp.Send(mailMessage);
         }

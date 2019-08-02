@@ -286,7 +286,7 @@ $(document).ready(function () {
             contentType: "application/json; charset=utf-8",
             dataType: "json",
             success: function (r) {
-                alert(r + " record(s) inserted.");
+                alert(r);
             }
         });
     });   

@@ -29,13 +29,15 @@ namespace FantasyFootbal.Controllers
         private readonly UserContext userContext;
         //
         private readonly IConfiguration configuration;
-
+        // 
+        private CheckData checkData;
         // Constructor
         public HomeController(TournamentContext tournamentContext, UserContext userContext, IConfiguration configuration)
         {
             this.tournamentContext = tournamentContext;
             this.userContext = userContext;
             this.configuration = configuration;
+            checkData = new CheckData();
         }
 
         // Get all teams through autocomplete ajax request
@@ -55,16 +57,19 @@ namespace FantasyFootbal.Controllers
 
         // after collecting the virtual footbal club we add it in the database
         [HttpPost]
-        public IActionResult AddPlayers([FromBody]List<Player> player)
+        public JsonResult AddPlayers([FromBody]List<Player> player)
         {
-            foreach (var item in player)
+       
+            bool result = checkData.AddAutocompleteTeam(player, tournamentContext, TeamId);
+
+            if (result)
             {
-                tournamentContext.Database.ExecuteSqlCommand("AddPlayer @user, @player, @id",
-                 new SqlParameter("@user", "testUsr"),
-                 new SqlParameter("@player", item.FootballPlayer),
-                 new SqlParameter("@id", TeamId));
+                 return Json("Added players");
             }
-            return View();
+            else
+            {
+                return Json("Something war wrong");
+            }
         }
 
         #region Reset password
@@ -78,26 +83,10 @@ namespace FantasyFootbal.Controllers
         [HttpPost]
         public IActionResult ResetPassword(string email)
         {
-            var resultParameter = new SqlParameter("@tmpUrl", SqlDbType.VarChar, 150)
-            {
-                Direction = ParameterDirection.Output
-            };
-
-            var resultParameter2 = new SqlParameter("@SendEmail", SqlDbType.VarChar, 150)
-            {
-                Direction = ParameterDirection.Output
-            };
-
-
-            var recordsAffected = userContext.Database.ExecuteSqlCommand("sp_changePass @Email ,@tmpUrl  out, @SendEmail out ",
-                  new SqlParameter("@Email", email),
-                  resultParameter,
-                  resultParameter2
-              );
-            RestorePassword restorePassword = new RestorePassword();
-            restorePassword.SendEmail(resultParameter2.Value.ToString(), resultParameter.Value.ToString());
-
+            bool res = checkData.ResetPassword(email, userContext);
             return View();
+
+           
         }
 
         // Getting new password
